@@ -1,7 +1,13 @@
 import React from 'react'
 import Avatar from '../avatar/Avatar'
 
+//dataUsers
+//lista de objetos con datos de usuario (avatar y nombre)
+//active == indice de usuario activo (para aplicar css)
+//changeActive = funcion para los botones de desplazamiento. se utiliza para cambiar el avatar activo
+
 const AvatarSlicer = ({ dataUsers, active, changeActive }) => {
+  //rango de avatares con css medio
   const viewRange = 1
   return (
     <div
@@ -21,7 +27,11 @@ const AvatarSlicer = ({ dataUsers, active, changeActive }) => {
       >
         atras
       </button>
+      {
+        // mapear lista de usuario
+      }
       {dataUsers.map((user, index, arr) => {
+        //aplicar css a avatar activo
         if (index === active) {
           return (
             <Avatar
@@ -33,14 +43,14 @@ const AvatarSlicer = ({ dataUsers, active, changeActive }) => {
             />
           )
         }
-
+        // compobar si el item esta fuera de rango. de ser asi , no se dibujara
         if (
           index < active - (viewRange + 1) ||
           index > viewRange + 1 + active
         ) {
           return null
         }
-
+        //si el item esta por debajo del rango . dibujarlo pero mas pequeño
         if (index < active - viewRange || index > viewRange + active) {
           return (
             <Avatar

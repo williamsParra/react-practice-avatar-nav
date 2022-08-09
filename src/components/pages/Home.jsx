@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AvatarSlicer from '../avatarSlicer/AvatarSlicer'
 
 const Home = () => {
-    
+    //funcion para cambiar el avatar activo
     const ChangeActiveUser = (newValue)=>{
         if(newValue < 0){
             newValue = 0;
@@ -13,6 +13,8 @@ const Home = () => {
         }
         setActiveIndex(newValue)
     }
+
+    //estado con la lista de usuarios
   const [listUser, serListUser] = useState([
     {
       url: 'https://fakeinfo.net/static/userface_image/male/male1.png',
